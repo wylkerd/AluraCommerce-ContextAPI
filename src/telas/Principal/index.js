@@ -7,13 +7,18 @@ import MaterialCommunityIcons from 'react-native-vector-icons/Feather';
 import { useContext } from 'react'
 import { TemaContext } from '../../contexts/temaContext';
 import { AutenticacaoContext } from '../../contexts/AutenticacaoContext';
+import { ProdutosContext } from '../../contexts/ProdutosContext';
 
 export default function Principal({navigation}) {
   const { temaEscolhido } = useContext(TemaContext);
-  const estilo = estilos(temaEscolhido);
-  
   const { usuario } = useContext(AutenticacaoContext)
-  const ultimosVistos = []
+  const { 
+    quantidade, 
+    ultimosVistos 
+  } = useContext(ProdutosContext)
+  
+  const estilo = estilos(temaEscolhido);
+  // const ultimosVistos = []
 
   return (
     <View style={estilo.container}>
@@ -24,9 +29,12 @@ export default function Principal({navigation}) {
           <TouchableOpacity onPress={() => {}}>
             <Feather name="shopping-cart" size={30} color="#fff" style={estilo.carrinhoIcon} />
           </TouchableOpacity>
-          <View style={estilo.carrinhoQuantidadeArea}>
-            <Text style={estilo.carrinhoQuantidade}>0</Text>  
-          </View>
+          {
+            quantidade > 0 &&
+            <View style={estilo.carrinhoQuantidadeArea}>
+              <Text style={estilo.carrinhoQuantidade}>{quantidade}</Text>  
+            </View>
+          }
           <TouchableOpacity onPress={() => navigation.navigate('Configurações')} style={estilo.iconArea} >
             <MaterialCommunityIcons name="settings" size={30} color="#fff" style={estilo.icon} />
           </TouchableOpacity>
