@@ -4,7 +4,7 @@ import { estilos } from './estilos';
 import { Feather } from 'react-native-vector-icons'
 import MaterialCommunityIcons from 'react-native-vector-icons/Feather';
 import { useContext } from 'react'
-import { TemaContext } from '../../contexts/temaContext';
+import { TemaContext } from '../../contexts/TemaContext';
 import { AutenticacaoContext } from '../../contexts/AutenticacaoContext';
 import { ProdutosContext } from '../../contexts/ProdutosContext';
 

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Text, View, TextInput, TouchableOpacity, StatusBar, Alert } from 'react-native';
 import { estilos } from './estilos';
 import { useContext } from 'react'
-import { TemaContext } from "../../contexts/temaContext";
+import { TemaContext } from "../../contexts/TemaContext";
 import { AutenticacaoContext } from "../../contexts/AutenticacaoContext";
 
 export default function Login({ navigation }) {

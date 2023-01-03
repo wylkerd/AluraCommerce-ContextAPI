@@ -1,10 +1,15 @@
 import { Text, View, Switch } from 'react-native';
 import { estilos } from './estilos';
 import { useState, useContext } from 'react';
-import { TemaContext } from '../../contexts/temaContext';
+import { TemaContext } from '../../contexts/TemaContext';
 
 export default function Configuracao({ navigation }) {
-  const { temaAtual, setTemaAtual, temaEscolhido } = useContext(TemaContext);
+  const { 
+    temaAtual, 
+    setTemaAtual, 
+    temaEscolhido,
+    salvarTemaNoDispositivo 
+  } = useContext(TemaContext);
 
   const estilo = estilos(temaEscolhido);
 
@@ -17,8 +22,8 @@ export default function Configuracao({ navigation }) {
       <Switch
         onValueChange={() => 
           temaAtual === 'escuro' ?
-          setTemaAtual('claro') :
-          setTemaAtual('escuro')
+          salvarTemaNoDispositivo('claro') :
+          salvarTemaNoDispositivo('escuro')
         }
         value={temaAtual === 'escuro' ? true : false}
       />

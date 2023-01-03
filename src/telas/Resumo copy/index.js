@@ -45,10 +45,7 @@ export default function Resumo({navigation}) {
         style={estilo.lista}
         showsVerticalScrollIndicator={false}
       />
-      <TouchableOpacity 
-        style={estilo.botao}
-        onPress={() => navigation.navigate('Finalizar')}
-      >
+      <TouchableOpacity style={estilo.botao}>
         <Text style={estilo.botaoTexto}> Finalizar </Text>
       </TouchableOpacity>
     </View>
