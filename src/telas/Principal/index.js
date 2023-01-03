@@ -6,18 +6,20 @@ import { Feather } from 'react-native-vector-icons'
 import MaterialCommunityIcons from 'react-native-vector-icons/Feather';
 import { useContext } from 'react'
 import { TemaContext } from '../../contexts/temaContext';
+import { AutenticacaoContext } from '../../contexts/AutenticacaoContext';
 
 export default function Principal({navigation}) {
   const { temaEscolhido } = useContext(TemaContext);
   const estilo = estilos(temaEscolhido);
   
+  const { usuario } = useContext(AutenticacaoContext)
   const ultimosVistos = []
 
   return (
     <View style={estilo.container}>
       <StatusBar />
       <View style={estilo.tituloArea}>
-        <Text style={estilo.titulo}>Olá, </Text>
+        <Text style={estilo.titulo}>Olá, {usuario?.nome}</Text>
         <View style={estilo.carrinhoArea}>
           <TouchableOpacity onPress={() => {}}>
             <Feather name="shopping-cart" size={30} color="#fff" style={estilo.carrinhoIcon} />
